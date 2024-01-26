@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  example-app:
+    container_name: "example-app"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - microservices
+    environment:
+      PORT: 3000
+networks:
+  microservices:
+    name: "microservices"
+    external: true
